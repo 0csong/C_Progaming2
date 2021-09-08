@@ -80,34 +80,12 @@ void max_frq(int arr[][COL])
 			freq[arr[i][j]]++;
 
 	//아래를 완성하시오
-	max_i = 0;
-	for (i = 10; i <51; i++) {
-		if (freq[i]<=freq[i+1])
-		{
-			max_i = i+1;
 
-		}
-		
-	}
-	printf("3) arr배열 원소중 빈도수 최대인 요소값:%d, 최대값의 빈도수:%d\n", max_i, freq[max_i]);
-	for (i = 0; i < ROW; i++) {
-		for (j = 0; j < COL; j++) {
-			//if (arr[i][j] == freq[max_i]), 처음 문제에서 오류로 아래줄로 대체합니다.
-			if (arr[i][j] == max_i)
-				printf("arr[%d][%d] ", i, j);
-		}
-	}
-	printf("\n");
-	
 	max_i = 0;
-	for (i = 10; i < 51; i++) {
-		if (freq[i] == 5)
-		{
+	for (i = 0; i <51; i++) {
+		if (freq[max_i] <freq[i]) {
 			max_i = i;
-			break;
-
 		}
-
 	}
 
 	//건드리지않기
@@ -141,12 +119,10 @@ arr[0][1] arr[0][13] arr[1][13] arr[3][10] arr[4][2]
 41 46 27 38 29 42 15 47 42 37 21 18 36 17 12 23 15 42 20 28
 1) 홀수의 합: 1436,  짝수의 합:1494
 2) 인덱스 20:arr[1][0]=14, 인덱스 50:arr[2][10]=11
-3) arr배열 원소중 빈도수 최대인 요소값:49, 최대값의 빈도수:5
-arr[0][6] arr[0][14] arr[2][2] arr[2][13] arr[3][18]
 3) arr배열 원소중 빈도수 최대인 요소값:27, 최대값의 빈도수:5
 arr[0][1] arr[0][13] arr[1][13] arr[3][10] arr[4][2]
 
-C:\Users\nicky\Desktop\3-2\c프로그래밍2\2021.09.03과제\Project1\Debug\Project1.exe(프로세스 27628개)이(가) 종료되었습니 다(코드: 0개).
+C:\Users\nicky\Desktop\3-2학기\c프로그래밍2\2021.09.03과제\Project1\Debug\Project1.exe(프로세스 26116개)이(가) 종료되었 습니다(코드: 0개).
 이 창을 닫으려면 아무 키나 누르세요...
 
 
