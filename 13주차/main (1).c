@@ -27,8 +27,12 @@ int main(void)
 	fclose(fp);
 
 	//아래를 완성하시오. "#취미: 축구" 를 추가하시오.
-
-
+	if ((fp = fopen("student.txt", "at")) == NULL)
+	{
+		fprintf(stderr, "추가를 위한 파일을 열 수 없습니다.\n");
+		exit(1);
+	}
+	fputs("##취미: 축구\n", fp);
 
 	fclose(fp);
 	//student.txt 를 메모장으로 열어 내용이 아래와 같은지 확인해 보세요.
@@ -71,10 +75,17 @@ int main(void)
 	printf("수정할 평점: ");
 	scanf("%lf", &stu_gpa);
 
-	//아래를 완성하시오. student.dat 로 부터 레코드를 읽어 수정된 내용을 tmp.dat에 쓴다.
-
-
-
+	//아래를 완성하시오
+	fseek(fp, 0, SEEK_SET);
+	if ((fp_tmp = fopen("tmp.dat", "wb")) == NULL) {
+		fprintf(stderr, "파일 tmp.dat를 열 수 없습니다");
+		exit(1);
+	}
+	while (fread(&s, sizeof(struct student), 1, fp) == 1) {
+		if (s.number == stu_no)
+			s.gpa = stu_gpa;
+		fwrite(&s, sizeof(struct student), 1, fp_tmp);
+	}
 
 	fclose(fp);
 	fclose(fp_tmp);
